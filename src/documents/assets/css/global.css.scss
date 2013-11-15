@@ -1,0 +1,655 @@
+/*---------------------------------------
+A portfolio template
+
+Designed by Lynn Fisher, @lynnandtonic
+----------------------------------------*/
+
+/*-- scss imports --*/
+
+@import "reset";
+@import "mixins";
+
+/*------------------------
+Fonts / Colors / Variables
+------------------------*/
+
+@mixin georgia { font-family: Georgia, Times, serif; }
+@mixin museo-sans { font-family: "museo-sans", Helvetica, Arial, sans-serif; }
+
+$grey-copy: #555;
+$grey-border: #e6e6e6;
+$grey-bg: #f7f7f7;
+$grey-header: #777;
+$grey-quote: #ececec;
+$grey-cite: #a2a2a2;
+
+$white: #fff;
+$black: #000;
+
+$blue-header: #819d9b;
+$blue-link: #3a569e;
+$brown-header: #28110f;
+$brown-copy: #625a4c;
+$pink-bg: #f53947;
+$pink-copy: #ffe2e4;
+
+$common-border: 1px solid $grey-border;
+$font-bold: 600;
+$font-normal: 300;
+
+$twitter-blue: #2daae1;
+$instagram-green: #69cd97;
+$pinterest-red: #cb2027;
+$dribbble-pink: #ef558f;
+$wordpress-blue: #308bc2;
+
+
+@mixin link-border {
+  border-bottom: 1px dotted $blue-link;
+  color: $blue-link;
+}
+
+@mixin structure {
+  margin: 0 auto;
+  max-width: 1300px;
+}
+
+/*------------------------
+Global styles
+------------------------*/
+
+html { -webkit-text-size-adjust: none; }
+
+body {
+  color: $grey-copy;
+  font-size: 16px;
+  min-width: 300px;
+  @include georgia;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1300px;
+}
+
+h1, h2, h3, h4 { @include museo-sans; }
+
+h1 {
+  font-size: 20px;
+  @include min-width(700px) { font-size: 24px; }
+}
+
+h2 {
+  color: $blue-header;
+  font-size: 25px;
+  padding-bottom: 10px;
+}
+
+h3 {
+  color: $grey-header;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+h4, h4 a {
+  color: $grey-copy;
+  font-size: 16px;
+}
+
+p, ul, ol, dl {
+  line-height: 23px;
+  padding-bottom: 15px;
+}
+
+a { text-decoration: none; }
+
+em { font-style: italic; }
+
+
+
+/*------------------------
+Header and Main Nav
+------------------------*/
+
+$padding-med: 30px 20px 10px;
+$padding-lrg: 50px 20px 20px;
+
+.siteHeader {
+  background: $white;
+  border-bottom: $common-border;
+  @include museo-sans;
+  @include max-width(767px) { text-align: center; }
+  .siteNav-name {
+    color: $grey-copy;
+    display: block;
+    font-size: 18px;
+    font-weight: $font-bold;
+    padding: 15px;
+    @include max-width(767px) {
+      background: $pink-bg;
+      border-bottom: $common-border;
+      color: $white;
+    }
+    @include min-width(768px) {
+      float: left;
+      padding: $padding-med;
+    }
+    @include min-width(900px) {
+      padding: $padding-lrg;
+    }
+  }
+  .siteNav-name--desc { font-weight: $font-normal; }
+  .list {
+    padding-bottom: 0;
+    @include min-width(768px) { float: right; }
+  }
+  .listItem {
+    float: left;
+    /* the following width should change as nav items are added or removed */
+    @include max-width(767px) { width: 33.33%; }
+    .siteNav-link {
+      border-right: $common-border;
+      color: $grey-copy;
+      display: block;
+      padding: 10px;
+      @include min-width(768px) { padding: $padding-med; }
+      @include min-width(900px) { padding: $padding-lrg; }
+    }
+    &:first-child {
+      .siteNav-link {
+        @include min-width(768px) { border-left: $common-border; }
+      }
+    }
+    &:last-child {
+      .siteNav-link {
+        @include max-width(1099px) { border-right: none; }
+      }
+    }
+  }
+}
+
+.info .siteNav-name { 
+    @include max-width(767px) { background: $black; }
+  }
+
+/*------------------------
+Splash Hero Space
+------------------------*/
+
+.siteHero {
+  background: #d0cbb2;
+  overflow: hidden;
+  @include museo-sans;
+  .container {
+    min-height: 420px;
+    position: relative;
+    @include min-width(900px) { min-height: 740px; }
+  }
+}
+
+.siteHero-dorothy {
+  background: transparent no-repeat 100% 100%;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+  @include max-width(899px) {
+    background-image: url(../images/hero-dorothy-small.png);
+    height: 397px;
+    right: 0;
+    width: 419px;
+  }
+  @include min-width(900px) {
+    background-image: url(../images/hero-dorothy.png);
+    height: 687px;
+    right: -400px;
+    width: 1037px;
+  }
+  @include min-width(1100px) { right: -250px; }
+}
+
+.siteHero-tinman {
+  background: transparent no-repeat 100% 100%;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+  @include max-width(899px) {
+    background-image: url(../images/hero-tinman-small.png);
+    height: 396px;
+    right: 0;
+    width: 295px;
+  }
+  @include min-width(900px) {
+    background-image: url(../images/hero-tinman.png);
+    height:687px;
+    right: -50px;
+    width: 512px;
+  }
+  @include min-width(1100px) { right: 100px; }
+}
+
+/* styles shared by the h1 and p */
+.siteHero-headline,
+.siteHero-desc {
+  position: relative;
+  z-index: 5;
+  @include max-width(599px) {
+    background-color: rgba(40,17,15,.6);
+    color: $white;
+    display: inline-block;
+  }
+  @include min-width(600px) {
+    margin: 0;
+    margin-left: 30px;
+    width: 49%;
+  }
+  @include min-width(768px) {
+    margin-left: 50px;
+    width: 54%;
+  }
+  @include min-width(1100px) { width: 42%; }
+}
+
+.siteHero-headline {
+  @include max-width(599px) {
+    font-size: 20px;
+    padding: 10px;
+    margin: 30px 15px 10px;
+  }
+  @include min-width(600px) {
+    color: $brown-header;
+    font-size: 25px;
+    padding: 100px 0 10px;
+  }
+  @include min-width(768px) {
+    font-size: 32px;
+    padding-top: 120px;
+  }
+  @include min-width(900px) {
+    font-size: 40px;
+    padding: 250px 0 10px;
+  }
+}
+
+.siteHero-desc {
+  @include max-width(599px) {
+    margin: 0 15px 10px;
+    padding: 8px;
+    width: 76%; 
+  }
+  @include min-width(600px) {
+    color: $brown-copy;
+    font-size: 20px;
+    line-height: 30px;
+    padding: 0;
+  }
+  @include min-width(768px) {
+    font-size: 25px;
+    line-height: 35px;
+  }
+  @include min-width(900px) {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
+/*------------------------
+Quotes Section
+------------------------*/
+
+.quote {
+  background: $black;
+  text-align: center;
+  @include museo-sans;
+  .quoteText {
+    color: $grey-quote;
+    line-height: 24px;
+    padding: 30px 20px;
+    @include min-width(600px) {
+      margin: 0 auto;
+      padding: 50px 0;
+      max-width: 600px;
+    }
+    @include min-width(768px) {
+      font-size: 18px;
+      line-height: 26px;
+      padding: 60px 20px;
+      max-width: 650px;
+    }
+    @include min-width(900px) {
+      font-size: 20px;
+      line-height: 30px;
+      padding-top: 100px;
+      padding-bottom: 80px;
+    }
+  }
+  .quoteSource {
+    color: $grey-cite;
+    display: block;
+    font-style: italic;
+    margin-top: 15px;
+    @include georgia;
+    @include min-width(900px) { margin-top: 50px; }
+    &:before { content: '-'; }
+    a { color: $grey-cite; }
+  }
+}
+
+/*------------------------
+Footer
+------------------------*/
+
+.siteFooter {
+  padding: 30px 0;
+  @include min-width(600px) { padding: 50px 0; }
+  .footerSection {
+    padding: 0 20px 30px;
+    @include min-width(600px) { padding: 10px 4%; }
+    @include min-width(900px) { padding: 2%; }
+  }
+  a { @include link-border; }
+}
+
+.footerAbout {
+  @include min-width(900px) {
+    float: left;
+    width: 45%;
+  }
+  .footerAbout-pic {
+    display: block;
+    margin: 20px auto;
+    width: 150px;
+    @include border-radius(50%);
+    @include min-width(600px) {
+      float: left;
+      margin: 0 30px 30px 0;
+    }
+  }
+  .footerHeadline {
+    @include max-width(599px) { text-align: center; }
+  }
+}
+
+/* styles shared by social and links sections */
+.footerSocial,
+.footerLinks {
+  @include min-width(600px) { float: left; }
+  @include min-width(768px) { width: 42%; }
+}
+
+.footerSocial {
+  @include min-width(600px) { width: 30%; }
+  @include min-width(900px) { width: 14%; }
+  .footerSocial-link {
+    background: $grey-copy url(../images/social.png) no-repeat;
+    border: none;
+    display: block;
+    float: left;
+    height: 50px;
+    margin: 0 5px 5px 0;
+    text-indent: -9999em;
+    width: 50px;
+    @include background-size(auto, 50px);
+    @include border-radius(3px);
+    @include min-width(900px) { margin: 0 8px 8px 0; }
+  }
+  .twitter   { background-color: $twitter-blue;     background-position: 0 0;}
+  .instagram { background-color: $instagram-green;  background-position: -50px 0 }
+  .pinterest { background-color: $pinterest-red;    background-position: -100px 0 }
+  .dribbble  { background-color: $dribbble-pink;    background-position: -150px 0 }
+  .wordpress { background-color: $wordpress-blue;   background-position: -200px 0 }
+}
+
+.footerLinks {
+  @include min-width(600px) { width: 54%; }
+  @include min-width(900px) { width: 28%; }
+  .list {
+    list-style: none;
+    margin-left: 0;
+    .listItem { padding: 7px 0; }
+  }
+}
+
+/*------------------------
+Work Page
+------------------------*/
+
+.work { background: $grey-bg; }
+
+.portfolio {
+  padding: 30px 4%;
+  @include museo-sans;
+  @include min-width(500px) { padding: 40px 2%; }
+  @include min-width(1100px) { padding: 50px 1%; }
+  @include min-width(1300px) { padding: 50px 0; }
+  .projectList {
+    list-style: none;
+    margin: 0;
+  }
+  .projectItem {
+    background: $white;
+    margin-bottom: 4%;
+    @include min-width(500px) {
+      float: left;
+      margin: 2%;
+      width: 46%;
+    }
+    @include width-range(500px, 899px) {
+      &:nth-child(2n+1) { clear: left; }
+    }
+    @include min-width(900px) { width: 29.333%; }
+    @include width-range(900px, 1099px) {
+      &:nth-child(3n+1) { clear: left; }
+    }
+    @include min-width(1100px) {
+      margin: 1%;
+      width: 23%;
+    }
+    @include min-width(1100px) {
+      &:nth-child(4n+1) { clear: left; }
+    }
+  }
+  .projectItem-link {
+    border: $common-border;
+    color: $grey-copy;
+    display: block;
+  }
+  .projectItem-pic { width: 100%; }
+  .projectItem-title { margin: 10px 15px 0; }
+  .projectItem-desc {
+    font-size: 14px;
+    margin: 0 15px;
+  }
+}
+
+/*------------------------
+Project Pages
+------------------------*/
+
+.project {
+  padding: 30px 0;
+  position: relative;
+  @include min-width(768px) { padding: 50px 0; }
+  a { @include link-border; }
+}
+
+.projectDetail {
+  margin: 0 4% 10px;
+  @include min-width(768px) {
+    float: right;
+    margin: 0 3%;
+    width: 35%;
+  }
+  @include min-width(1100px) {
+    margin: 0 2%;
+    width: 32%;
+  }
+  .container--fixed {
+    @include min-width(768px) {
+      position: fixed;
+      padding-right: 3%;
+      width: 35%;
+  }
+    @include min-width(1100px) {
+      margin-right: 2%;
+      max-width: 350px;
+      width: 32%;
+    }
+  }
+  .projectDetail-title {
+    color: $blue-header;
+    padding-bottom: 10px;
+  }
+  .projectDetail-meta--term {
+    float: left;
+    clear: left;
+    color: $grey-header;
+    margin-right: 5px;
+  }
+}
+
+.projectPic {
+  margin: 0 4% 15px;
+  width: 92%;
+  @include min-width(700px) { max-width: 700px; }
+  @include min-width(768px) {
+    float: left;
+    margin: 0 0 20px 3%;
+    width: 56%;
+  }
+  @include min-width(1100px) {
+    margin-left: 5%;
+    width: 55%;
+  }
+  @include min-width(1300px) { margin-left: 8%; } 
+}
+
+/*------------------------
+Info Page
+------------------------*/
+
+.dorothyInfo {
+  background: $pink-bg;
+  color: $white;
+  padding: 40px 0;
+  @include min-width(900px) { padding: 60px 0; }
+  @include min-width(1100px) { padding: 80px 0; }
+  a {
+    @include link-border;
+    border-color: $pink-copy;
+    color: $pink-copy;
+  }
+  .container {
+    padding: 0 6%;
+    @include width-range(768px, 899px) { padding: 0 10%; }
+    @include min-width(1100px) { padding: 0; }
+  }
+  .dorothyInfo-pic {
+    display: block;
+    margin: 0 auto 30px;
+    width: 60%;
+    @include border-radius(50%);
+    @include min-width(900px) {
+      float: left;
+      margin-right: 8%;
+      width: 42%;
+    }
+    @include min-width(1100px) {
+      margin: 0 7% 0 10%;
+      width: 35%;
+    }
+  }
+  .dorothyInfo-bio {
+    @include min-width(900px) {
+      float: left;
+      width: 50%;
+    }
+    @include min-width(1100px) {
+      margin-right: 10%;
+      width: 38%;
+    }
+  }
+  .dorothyInfo-headline {
+    color: $pink-copy;
+    padding-bottom: 20px;
+    @include max-width(899px) { text-align: center; }
+  }
+  .dorothyInfo-desc {
+    font-weight: $font-normal;
+    @include max-width(349px) { display: block }
+  }
+}
+
+.footnote {
+  font-size: 13px;
+  font-style: italic;
+  line-height: 20px;
+  padding-top: 10px;
+}
+
+/*------------------------
+Thoughts Page
+------------------------*/
+
+.thoughts {
+  margin: 50px auto;
+  max-width: 650px;
+  padding: 0 15px;
+  p {
+    font-size: 17px;
+    line-height: 30px;
+  }
+  blockquote {
+    margin: 16px 40px;
+    padding-left: 20px;
+    p {
+      border-left: 5px solid #819d9b;
+      padding-left: 20px;
+      font-style: italic;
+      color: #777;
+    }
+  }
+}
+
+.entry-title {
+  border: none;
+  color: #819d9b;
+  font-size: 30px;
+  font-weight: normal;
+  line-height: 40px;
+  margin: 0 0 7px;
+  text-decoration: none;
+}
+
+.entry-content {
+  margin-top: 30px;
+}
+
+.entry-footer {
+  border-bottom: 1px dotted #ccc;
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  text-align: right;
+}
+
+.entry-date, .entry-comments {
+  border: none;
+  color: #777;
+  font-size: 14px;
+}
+
+/*------------------------
+Clearfix
+------------------------*/
+
+.clearfix:after,
+.container:after,
+.siteHeader:after,
+.footerSection:after {
+  @include clearfix;
+}
+
+/*------------------------
+Internet Explorer (IE)
+------------------------*/
+
+@import "ie";

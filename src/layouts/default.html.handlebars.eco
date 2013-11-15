@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--[if lte IE 8]>     <html class="lte-ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+
+  <!-- Site Properities -->
+  <title>Dorothy Gale -- {{document.title}}</title>
+  <meta name="description" content="{{document.description}}" />
+
+  <%- @getBlock('styles').add(['/assets/css/global.css']).toHTML() %>
+
+  <!--[if lte IE 8]>
+    <script src="/assets/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Insert your own Typekit code here or remove -->
+  <script type="text/javascript" src="//use.typekit.net/fjx2rin.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+</head>
+
+<body class="{{document.bodyClass}}">
+
+  <header class="siteHeader">
+    <nav class="siteNav container">
+      <a href="/" title="Dorothy Gale" class="siteNav-name">Dorothy Gale <span class="siteNav-name--desc">The Wanderer</span></a>
+      <ul class="list">
+        <li class="listItem">
+          <a class="siteNav-link" href="/work/" title="Work">Work</a>
+        </li>
+        <li class="listItem">
+          <a class="siteNav-link" href="/info/" title="Info">Info</a>
+        </li>
+        <li class="listItem">
+          <a class="siteNav-link" href="/thoughts/" title="Thoughts">Thoughts</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  {{{ content }}}
+
+<!-- include the footer on pages that specify it -->
+  <% if (@document.footer): %><%- @partial('footer-site') %><% end %>
+
+  <!-- DocPad Scripts + Our Own -->
+  <% if (@getEnvironment() == 'development'): %>
+    <%- @getBlock('scripts').add(['/vendor/log.js']).toHTML() %>
+  <% end %>
+
+  <!-- insert Google Analytics code here -->
+
+</body>
+</html>
