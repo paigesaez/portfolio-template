@@ -99,7 +99,7 @@ docpadConfig = {
 		development:
 			templateData:
 				site:
-				contextPath: '/'
+					contextPath: '/'
 
 }
 
