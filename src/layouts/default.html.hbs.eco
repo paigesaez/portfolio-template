@@ -11,10 +11,10 @@
   <title>Dorothy Gale -- {{document.title}}</title>
   <meta name="description" content="{{document.description}}" />
 
-  <%- @getBlock('styles').add(['/assets/css/global.css']).toHTML() %>
+  <link  rel="stylesheet" href="{{site.contextPath}}/assets/css/global.css" />
 
   <!--[if lte IE 8]>
-    <script src="/assets/js/html5shiv.js"></script>
+    <script src="{{site.contextPath}}/assets/js/html5shiv.js"></script>
   <![endif]-->
 
   <!-- Insert your own Typekit code here or remove -->
@@ -27,16 +27,16 @@
 
   <header class="siteHeader">
     <nav class="siteNav container">
-      <a href="/" title="Dorothy Gale" class="siteNav-name">Dorothy Gale <span class="siteNav-name--desc">The Wanderer</span></a>
+      <a href="{{site.contextPath}}/" title="Dorothy Gale" class="siteNav-name">Dorothy Gale <span class="siteNav-name--desc">The Wanderer</span></a>
       <ul class="list">
         <li class="listItem">
-          <a class="siteNav-link" href="/work/" title="Work">Work</a>
+          <a class="siteNav-link" href="{{site.contextPath}}/work/" title="Work">Work</a>
         </li>
         <li class="listItem">
-          <a class="siteNav-link" href="/info/" title="Info">Info</a>
+          <a class="siteNav-link" href="{{site.contextPath}}/info/" title="Info">Info</a>
         </li>
         <li class="listItem">
-          <a class="siteNav-link" href="/thoughts/" title="Thoughts">Thoughts</a>
+          <a class="siteNav-link" href="{{site.contextPath}}/thoughts/" title="Thoughts">Thoughts</a>
         </li>
       </ul>
     </nav>

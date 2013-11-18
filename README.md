@@ -22,6 +22,14 @@ This is the template for my current portfolio site, redesigned in April of 2013.
 1. Start hacking away by modifying the `src` directory
 
 
+## Domain set up
+
+Before you deploy, you will want to update your production URL. In most cases, you will not need a contextPath. It is set up this way to accomodate subfolder paths when deployed to GitHub pages.
+
+	site:
+			# Site Production URL
+			contextPath: '/portfolio-template'
+
 ## Production Build
 
     docpad run --env=production
