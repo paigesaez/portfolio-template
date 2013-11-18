@@ -4,7 +4,7 @@
 
 This is the template for my current portfolio site, redesigned in April of 2013.
 
-You can view a preview of this template here: [http://lynnandtonic.github.io/portfolio-template/](http://lynnandtonic.github.io/portfolio-template/)
+You can preview this template here: [http://lynnandtonic.github.io/portfolio-template/](http://lynnandtonic.github.io/portfolio-template/)
 
 ## Getting Started
 
