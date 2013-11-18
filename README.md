@@ -26,7 +26,7 @@ You can preview this template here: [http://lynnandtonic.github.io/portfolio-tem
 
 ## Domain set up
 
-Before you deploy, you will want to update your production URL. In most cases, you will not need a contextPath. It is set up this way to accomodate subfolder paths when deployed to GitHub pages.
+Before you deploy, you will want to update your production URL in the `docpad.coffee` file. In most cases, you will not need a contextPath. It is set up this way to accomodate subfolder paths when deployed to GitHub pages.
 
 	site:
 			# Site Production URL
