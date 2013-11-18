@@ -12,7 +12,7 @@ docpadConfig = {
 		# Specify some site properties
 		site:
 			# Site Production URL
-            contextPath: '/portfolio-template'
+				contextPath: '/portfolio-template'
 
 			# Here are some old site urls that you would like to redirect from
 			oldUrls: [
@@ -92,14 +92,14 @@ docpadConfig = {
 			sassPath: '/usr/bin/sass'
 			scssPath: '/usr/bin/scss'
 
-    # =================================
-    # Environments
- 
-    environments:
-        development:
-            templateData:
-                site:
-                    contextPath: '/'
+	# =================================
+	# Environments
+
+	environments:
+		development:
+			templateData:
+				site:
+				contextPath: '/'
 
 }
 
