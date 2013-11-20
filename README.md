@@ -23,6 +23,25 @@ You can preview this template here: [http://lynnandtonic.github.io/portfolio-tem
 
 1. Start hacking away by modifying the `src` directory
 
+### Plugins
+
+This template uses [the DocPad Handlebars plugin](https://github.com/docpad/docpad-plugin-handlebars). To install:
+
+	npm install --save docpad-plugin-handlebars
+
+It also uses [the DocPad Sass plugin](https://github.com/docpad/docpad-plugin-sass). To install:
+
+1. [Install Ruby](http://www.ruby-lang.org/en/downloads/)
+
+1. [Install the SASS gem](http://rubygems.org/gems/sass/)
+
+1. [Optional: Install the Compass gem](http://rubygems.org/gems/compass/)
+
+1. Install this plugin
+
+	```
+	docpad install sass
+	```
 
 ## Domain set up
 
